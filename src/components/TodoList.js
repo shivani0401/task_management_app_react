@@ -48,7 +48,7 @@ export default function TodoList() {
               />
               <span
                 style={{
-                  marginRight: "10px",
+                  marginRight: "10px", 
                   textDecoration: todo.checked ? "line-through" : "none",
                   fontSize:'18px',
                   marginLeft:'10px'
