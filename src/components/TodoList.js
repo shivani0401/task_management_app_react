@@ -10,6 +10,9 @@ export default function TodoList() {
       setTodos([...todos,{text:newTodo.trim(),checked: false}])
       setNewTodo("");
     }
+    else{
+      alert("Please enter a valid todo");
+    }
   };
   
   let handleDeleteTodo = (index) => {
@@ -26,9 +29,9 @@ export default function TodoList() {
 
   return (
     <div>
-      <h1>Task Management App</h1>
-      <input type="text" value={newTodo} onChange={(e)=> setNewTodo(e.target.value)}/>
-      <Button variant="primary" onClick={handleAddTodo}>Add</Button>
+      <h3>Task Management App</h3>
+      <input type="text" placeholder="enter a task, click add to save" style={{ width:'300px',marginTop: "5px", marginBottom: "5px", marginRight:"10px", padding: "5px", border:"none", borderRadius:'5px' }} value={newTodo} onChange={(e)=> setNewTodo(e.target.value)}/>
+      <Button variant="primary" style={{marginTop: "5px", marginBottom: "5px", padding: "5px",border:"none", borderRadius:'5px'}} onClick={handleAddTodo}>Add</Button>
       <ul>
         {todos.map((todo, index) => (
           <li
@@ -47,13 +50,15 @@ export default function TodoList() {
                 style={{
                   marginRight: "10px",
                   textDecoration: todo.checked ? "line-through" : "none",
+                  fontSize:'18px',
+                  marginLeft:'10px'
                 }}
               >
                 {todo.text}
               </span>
             </div>
             <Button variant="primary"
-              style={{ marginTop: "5px", marginBottom: "5px", padding: "5px" }}
+              style={{ marginTop: "5px", marginBottom: "5px", padding: "5px", border:"none", borderRadius:'5px' }}
               onClick={() => handleDeleteTodo(index)}
             >
               Delete
